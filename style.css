@@ -1,60 +1,221 @@
-body {
+/* General styles */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  background-color: #f0f0f0;
+  padding-top: 60px; /* for fixed header */
 }
-
-.dashboard {
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   display: flex;
-  height: 100vh;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.sidebar {
-  width: 250px;
-  background: #282c34;
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 85%;
+  height: 10vh;
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+header a {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  display: inline-block;
+  align-items: center;
+  position: relative;
+}
+
+.search-bar {
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+  width: 200px;
+  font-size: 16px;
+}
+
+.language-select, .mode-toggle, .notifications, .profile, .help, .logout {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.language-select {
+  background-color: #444;
+  padding: 6px;
+}
+
+.mode-toggle {
+  background-color: #555;
+}
+
+.notifications {
+  background-color: #444;
+}
+
+.profile {
+  background-color: #555;
+}
+
+.help {
+  background-color: #444;
+}
+
+.logout {
+  background-color: #555;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  nav ul {
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      padding: 10px 0;
+  }
+
+  .search-bar {
+      width: 100%;
+  }
+}
+/*----------*/
+.dark-mode {
+  background-color: #121212;
   color: #ffffff;
+}
+
+.dark-mode header {
+  background-color: #1a1a1a;
+}
+
+.dark-mode .search-bar {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-mode .language-select, .dark-mode .mode-toggle, .dark-mode .notifications, .dark-mode .profile, .dark-mode .help, .dark-mode .logout {
+  background-color: #444;
+}
+
+/*---------*/
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15%;
+  height: 100vh;
+  background-color: rgba(36, 40, 50, 1);
+  background-image: linear-gradient(
+    139deg,
+    rgba(36, 40, 50, 1) 0%,
+    rgba(36, 40, 50, 1) 0%,
+    rgba(37, 28, 40, 1) 100%
+  );
+  padding: 25px 10px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  gap: 10px;
 }
 
-.menu {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.card .separator {
+  border-top: 1.5px solid #42434a;
 }
 
-.menu-item {
-  padding: 10px 20px;
-  margin: 10px 0;
+.card .list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 10px;
+}
+
+.card .list .element {
+  display: flex;
+  align-items: center;
+  color: #7e8590;
+  gap: 10px;
+  transition: all 0.3s ease-out;
+  padding: 10px 7px;
+  border-radius: 6px;
   cursor: pointer;
-  border-radius: 5px;
-  transition: background 0.3s;
 }
 
-.menu-item:hover {
-  background: #5353ff;
+.card .list .element svg {
+  width: 19px;
+  height: 19px;
+  transition: all 0.3s ease-out;
 }
 
-.menu-item.active {
-  background: #5353ff;
+.card .list .element .label {
+  font-weight: 600;
 }
 
-.menu-item.delete:hover {
-  background: #8e2a2a;
+.card .list .element:hover {
+  background-color: #5353ff;
+  color: #ffffff;
+  transform: translate(1px, -1px);
+}
+.card .list .delete:hover {
+  background-color: #8e2a2a;
 }
 
+.card .list .element:active {
+  transform: scale(0.99);
+}
+
+.card .list:not(:last-child) .element:hover svg {
+  stroke: #ffffff;
+}
+
+.card .list:last-child svg {
+  stroke: #bd89ff;
+}
+.card .list:last-child .element {
+  color: #bd89ff;
+}
+
+.card .list:last-child .element:hover {
+  background-color: rgba(56, 45, 71, 0.836);
+}
 .main-content {
-  flex: 1;
+  margin-left: 15%; /* Décale le contenu vers la droite pour le laisser à côté du menu */
+  margin-top: 10px; /* Décale le contenu vers le bas pour qu'il ne soit pas caché sous le header */
   padding: 20px;
-  background-color: #fff;
 }
 
-.section {
-  display: none;
-}
-
-.section.active {
-  display: block;
+.main-content h1, .main-content p {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
