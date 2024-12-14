@@ -4,45 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .container {
+            display: flex;
+        }
+        .sidebar {
+            width: 20%;
+            background-color: #333;
+            color: white;
+            height: 100vh;
+            padding-top: 20px;
+            position: fixed;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 15px 20px;
+            border-bottom: 1px solid #444;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .sidebar ul li a:hover {
+            background-color: #575757;
+        }
+        .main-content {
+            margin-left: 20%;
+            padding: 20px;
+            width: 80%;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .card h3 {
+            margin: 0 0 10px;
+        }
+        .card p {
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-    <div class="dashboard">
+    <!-- Header -->
+    <header>
+        <h1>Dashboard</h1>
+        <div>
+            <i class="fas fa-bell" style="margin-right: 20px; cursor: pointer;"></i>
+            <i class="fas fa-user-circle" style="cursor: pointer;"></i>
+        </div>
+    </header>
+
+    <!-- Container -->
+    <div class="container">
         <!-- Sidebar -->
-        <nav class="sidebar">
-            <ul class="menu">
-                <li data-section="dashboard" class="menu-item active">Dashboard</li>
-                <li data-section="users" class="menu-item">Users</li>
-                <li data-section="settings" class="menu-item">Settings</li>
-                <li data-section="team" class="menu-item">Team Access</li>
-                <li data-section="delete" class="menu-item delete">Delete</li>
+        <div class="sidebar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Users</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Logout</a></li>
             </ul>
-        </nav>
+        </div>
 
         <!-- Main Content -->
         <div class="main-content">
-            <section id="dashboard" class="section active">
-                <h1>Welcome to the Dashboard</h1>
-                <p>Here you can see an overview of your system.</p>
-            </section>
-            <section id="users" class="section">
-                <h1>Manage Users</h1>
-                <p>View, add, or remove users from your system.</p>
-            </section>
-            <section id="settings" class="section">
-                <h1>Settings</h1>
-                <p>Adjust your preferences here.</p>
-            </section>
-            <section id="team" class="section">
-                <h1>Team Access</h1>
-                <p>Control team access and permissions.</p>
-            </section>
-            <section id="delete" class="section">
-                <h1>Delete Section</h1>
-                <p>Careful! This section is for deletions only.</p>
-            </section>
+            <div class="grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <h3>Total Users</h3>
+                    <p>1,250</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <h3>New Signups</h3>
+                    <p>320</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <h3>Revenue</h3>
+                    <p>$12,500</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card">
+                    <h3>Support Tickets</h3>
+                    <p>15 Open</p>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
