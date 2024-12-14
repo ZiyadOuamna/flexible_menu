@@ -23,7 +23,7 @@ header {
   position: fixed;
   top: 0;
   right: 0;
-  width: 85%;
+  width: 80%;
   height: 10vh;
   background-color: #333;
   color: white;
@@ -134,7 +134,7 @@ nav ul li {
   position: absolute;
   top: 0;
   left: 0;
-  width: 15%;
+  width: 20%;
   height: 100vh;
   background-color: rgba(36, 40, 50, 1);
   background-image: linear-gradient(
@@ -210,7 +210,7 @@ nav ul li {
   background-color: rgba(56, 45, 71, 0.836);
 }
 .main-content {
-  margin-left: 15%; /* Décale le contenu vers la droite pour le laisser à côté du menu */
+  margin-left: 20%; /* Décale le contenu vers la droite pour le laisser à côté du menu */
   margin-top: 10px; /* Décale le contenu vers le bas pour qu'il ne soit pas caché sous le header */
   padding: 20px;
 }
